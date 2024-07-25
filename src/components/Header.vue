@@ -1,11 +1,18 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { computed } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
+
+const route = useRoute()
+
+const paginaInicio = computed(() => route.name === 'inicio')
+
 
 </script>
 
 <template>
     <header
         class="bg-slate-800"
+        :class="{'header': paginaInicio}"
     >
         <div class="mx-auto container px-5 py-16">
             <div class="flex items-center justify-between">
@@ -37,6 +44,7 @@ import { RouterLink } from 'vue-router'
             </div>
 
             <form
+                v-if="paginaInicio"
                 class="md:w-1/2 2xl:w1/3 bg-orange-400 my-32 p-10 rounded-lg shadow space-y-6"
             
             >
@@ -77,10 +85,19 @@ import { RouterLink } from 'vue-router'
                 </div>
                 <input
                     type="submit"
-                    class="w-full bg-orange-500 text-white p-3 rounded-lg uppercase font-bold cursor-pointer hover:bg-orange-700"
+                    class="bg-orange-800 hover:bg-orange-900 cursor-pointer text-white font-extrabold w-full p-2 rounded-lg uppercase"
                     value="Buscar Recetas"
                 >
             </form>
         </div>
     </header>
 </template>
+
+<style>
+    .header {
+        background-image: url('/img/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+</style>
