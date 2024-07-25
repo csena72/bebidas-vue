@@ -71,9 +71,11 @@ const paginaInicio = computed(() => route.name === 'inicio')
                     >
                         Categoría
                     </label>
+
                     <select
                         id="categoria"
                         type="text"
+                        class="p-3 w-full rounded-lg focus:outline-none"
                     >
                         <option
                             value=""
@@ -82,6 +84,7 @@ const paginaInicio = computed(() => route.name === 'inicio')
                             -- Seleccione --
                         </option>
                     </select>
+
                 </div>
                 <input
                     type="submit"
