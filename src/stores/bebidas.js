@@ -14,13 +14,14 @@ export const useBebidasStore = defineStore('bebidas', () => {
     const recetas = ref([])
 
     onMounted(async function() {
-        const data = await APIService.obtenerCocktails()
+        const {data} = await APIService.obtenerCocktails()
         categorias.value = data.drinks
     })
 
     async function obtenerRecetas() {
-        const data = await APIService.obtenerCocktailPorNombre(busqueda.nombre)
-        recetas.value = data.drinks
+        const { data: { drinks } } = await APIService.obtenerCocktailPorNombre(busqueda)
+
+        recetas.value = drinks
     }
 
     return {
