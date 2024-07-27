@@ -89,7 +89,8 @@ const formatearIngredientes = (ingredientes) => {
                         type="button"
                         @click="favoritos.handleClickFavorito"
                         class="w-full rounded bg-orange-600 p-3 font-bold uppercase text-white shadow hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
-                    >Agregar a Favoritos
+                    >
+                        {{ modal.textoBoton }}
                     </button>
 
                 </div> 
